@@ -22,12 +22,15 @@
                 </div>
                 {% elif products|length > 0 %}
                     {% for product in products %}
-                    <div id="{{ product.id }}" class="col-md-4 mb-4">
+                    <div id="{{ product.id }}" class="col-lg-4 ">
                         <div class="card product-card mb-2">
                             <img class="card-img-top" src="{{ product.image.url }}" height="200px" alt="Card image cap">
                             <div class="card-body">
-                                <p class="card-title">{{ product.name|truncatechars:60 }}</p>
-                                <p class="card-text">{{ product.price|currency }}</p>
+                                <p class="card-title"><strong>{{ product.name|truncatechars:60 }}</strong></p>
+                                <p class="card-text:inline-block">{{ product.price|currency }}</p>
+                                
+                                <!--<p class="card-text: inline-block"><strong>{{ product.price|currency }}</strong></p>-->
+                                <hr>                                
                                 <form action="/#{{ product.id }}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" value="{{ product.id }}" name="product">
@@ -38,6 +41,7 @@
                                     {% endif %}
                                     <a class="btn btn-success" href="/?id={{ product.id }}">View</a>
                                 </form>
+                                
                             </div>
                         </div>
                     </div>

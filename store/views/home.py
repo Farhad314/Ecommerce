@@ -2,9 +2,9 @@ from django.shortcuts import render,redirect
 from django.views import View
 from store.models import Product
 from store.models import Category
-
+from django.db.models import Q
 class Home(View):
-
+	
 	def get(self,request):
 		cart = request.session.get('cart')
 		categories = Category.getAllCategory()
@@ -40,3 +40,17 @@ class Home(View):
 		print(cart)
 		request.session['cart'] = cart
 		return redirect('cart')
+		
+
+	'''def index(self,request):
+		if 'q'in request.GET:
+			q = request.GET.get('q')
+			categories = Category.getAllCategory()
+			products = Product.objects.filter(name__icontains=q)
+		else:
+			products = Product.objects.all()
+			categories = Category.getAllCategory()
+		context = {'products' : products, "categories":categories}
+		return render(request,'home.html',context)'''
+
+	

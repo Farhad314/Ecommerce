@@ -7,14 +7,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %} {% endblock %}</title>
-    <!-- Bootstrap CSS -->
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap"
+      rel="stylesheet"
+    />
+ 
+    <!-- CSS Implementing Plugins -->
+    <link
+      rel="stylesheet"
+      href="{% static "blueberry/assets/vendor/font-awesome/css/all.min.css" %}"
+    />
+    
+   
+
+    <!-- CSS Blueberry Template -->
+    <link rel="stylesheet" href="{% static "blueberry/assets/css/theme.css" %}" />
+
+
+    <!--orginal of this html Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-
+<!---     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">     -->
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-        <a class="navbar-brand" href="/">Django Eshop</a>
+        <a class="navbar-brand navbar-expand-sm" href="/">Django Eshop</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,6 +43,12 @@
                     <a class="nav-link" href="/">Products</a>
                 </li>
             </ul>
+            <!--     SEARCH function       -->
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+
             <form class="form-inline">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -60,11 +85,63 @@
     {% block content %}
     {% endblock %}
 
+
+    <!-- ========== FOOTER ========== -->
+    <br>
+    <br>
+    <hr>
+    <footer class="container space-0 text-center bg-navy">
+      
+    
+      
+      <p class="font-size-1"><h6 class="text-white">© Farhad, Iqbal. CSE 10th Batch.</h6> </p>
+    
+      <!-- Social Networks -->
+      <ul class="list-inline mb-0">
+        
+        <li class="list-inline-item mb-2 mb-sm-0 text-white">
+          <a class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle text-white" href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        
+        <li class="list-inline-item mb-2 mb-sm-0">
+          <a class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle text-white" href="#">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        
+        <li class="list-inline-item mb-2 mb-sm-0">
+          <a class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle text-white" href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+      </ul>
+      <!-- End Social Networks -->
+    </footer>
+    <!-- ========== END FOOTER ========== -->
+  
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+     <!-- JS Global Compulsory -->
+     <script src="{% static "blueberry/assets/vendor/jquery/dist/jquery.min.js" %}"></script>
+     <script src="{% static "blueberry/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js" %}"></script>
+     <script src="{% static "blueberry/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>
+ 
+     
+ 
+     <!-- IE Support -->
+     <script>
+       if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+         document.write(
+           '<script src="{% static "blueberry/assets/vendor/polifills.js" %}"><\/script>'
+         );
+     </script>
 </body>
 
 </html>
